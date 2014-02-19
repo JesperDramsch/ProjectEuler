@@ -103,15 +103,8 @@ block="""37107287533902102798797998220837590246510135740250
 
 blockarr=(block.split('\n'))
 
-stellensumme=np.zeros((50,1))
-for l in xrange(-1,-41,-1):
-    for k in blockarr:
-        stellensumme[l]+=int(k[l])             #Summen der Stellen aller Zahlen berechnen von der 11-50ten Stelle
-tmp=int(stellensumme[-1]*.1)
-for m in xrange(-1,-40,-1):
-    tmp=int((tmp+stellensumme[m-1])*.1)        #Die Summen der Stellen nach Zehnerpotenz multiplizieren und addieren
-out=0                                          #Dies gibt letztendlich das Residuum der letzten 40 Stellen von der Addition
-for n in blockarr:
-    out+=int(n[1:10])
+out=0
+for k in blockarr:
+    out+=int(k)
     
-print out+tmp
+print str(out)[0:10]
