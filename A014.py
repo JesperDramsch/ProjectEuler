@@ -10,12 +10,12 @@ def collatz(n):
         out.append(n)
     return len(out)
 
-
+maxi=0
 for k in xrange(1,10**6+1):
-    max=0
     col=collatz(k)
-    if col > max:
-        max=col
+    if col > maxi:
+        maxi=col
         act=k
+        print(k)
         
 print act
