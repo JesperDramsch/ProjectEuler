@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
+#!/usr/bin/python
 import time as t
+import numpy as np
+import operator
 start = t.time()
 
 """
@@ -23,20 +26,32 @@ for k in xrange(1,10**6+1):
 print act
 """
 
-def collatz(n):
-    while not n == 1:
-        n=int(n*.5 if n&1==0 else 3*n+1)
-	yield n
 
-maxi=0
-for k in xrange(1,10**6+1):
-    col=sum(1 for l in collatz(k))
-    if col > maxi:
-	maxi=col
-        act=k
-        print k
-        
-print act
+def load_collatz(up):
+    global coll_dict 
+    coll_dict = {1:1}
+    
+    for k in xrange(2,int(up+1)):
+	count=0
+	l=k
+	while not l == 1:
+	    if not coll_dict.has_key(l):
+		if l&1==0:
+		    l=int(l*.5)
+		    count+=1
+		else:
+		    l=int(1.5*l+.5)
+		    count+=2
+	    else:
+		count+=coll_dict[l]
+		l=1
+	coll_dict[k]=count
+	
+
+load_collatz(10**6)
+print max(coll_dict.iteritems(), key=operator.itemgetter(1))[0]
+
+
 
 
 end = t.time()
