@@ -33,7 +33,7 @@ def load_collatz(up):
     for m in xrange(1,int(np.log2(up)+1)):
 	coll_dict[2**m]=m
     
-    for k in xrange(2,int(up+1)):
+    for k in xrange(3,int(up+1)):
 	count=0
 	l=k
 	while not l == 1:
