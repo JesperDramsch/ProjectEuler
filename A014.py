@@ -30,6 +30,8 @@ print act
 def load_collatz(up):
     global coll_dict 
     coll_dict = {1:1}
+    for m in xrange(1,int(np.log2(up)+1)):
+	coll_dict[2**m]=m
     
     for k in xrange(2,int(up+1)):
 	count=0
