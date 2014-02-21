@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/python
 import time as t
+start = t.time()
 import numpy as np
 import operator
-start = t.time()
 
 """
 def collatz(n):
@@ -33,7 +33,7 @@ def load_collatz(up):
     for m in xrange(1,int(np.log2(up)+1)):
 	coll_dict[2**m]=m
     
-    for k in xrange(3,int(up+1)):
+    for k in xrange(3,int(up+1),2):
 	count=0
 	l=k
 	while not l == 1:
@@ -48,6 +48,8 @@ def load_collatz(up):
 		count+=coll_dict[l]
 		l=1
 	coll_dict[k]=count
+	if k < up*.5:
+	    coll_dict[k*2]=count+1
 	
 
 load_collatz(10**6)
