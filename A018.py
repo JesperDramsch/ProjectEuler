@@ -1,3 +1,4 @@
+import numpy as np
 
 tri="""75
 95 64
@@ -14,3 +15,15 @@ tri="""75
 91 71 52 38 17 14 91 43 58 50 27 29 48
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23"""
+
+tri=(tri.split('\n'))
+#trio=np.zeros(len(tri),len(tri[-1].split(' ')))
+for k in tri:
+    row=k.split(' ')
+    col=0
+    for l in row:
+        col+=1
+        print l
+        
+#print trio
+    
