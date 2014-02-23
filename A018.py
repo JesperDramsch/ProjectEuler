@@ -17,13 +17,14 @@ tri="""75
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23"""
 
 tri=(tri.split('\n'))
-#trio=np.zeros(len(tri),len(tri[-1].split(' ')))
+trio=np.zeros([len(tri),len(tri[-1].split(' '))])
+i_row=0
 for k in tri:
     row=k.split(' ')
-    col=0
+    i_col=0
     for l in row:
-        col+=1
-        print l
+        print i_row,i_col
+        trio[i_row,i_col]= l
+        i_col+=1
+    i_row+=1
         
-#print trio
-    
